@@ -26,33 +26,15 @@ class RunAnyObj {
 	;参数说明：getZz：选中的文本内容
 	;splitStr：换行符替换的分隔文本(默认空格，逗号为特殊字符，转义写成`,)
 	;isSend：0-显示并保存到剪贴板；1-输出结果
-	text_merge_zz(getZz:="",splitStr:=" ",isSend=1,surroundStr:=""){
+	text_merge_zz(getZz:="",splitStr:=" ",isSend=1){
 		textResult:=""
 		Loop, parse, getZz, `n, `r
 		{
 			str=%A_LoopField%
 			if(str!="")
-				textResult.=surroundStr . str . surroundStr . splitStr
+				textResult.=str . splitStr
 		}
 		textResult:=RegExReplace(textResult,splitStr "$")
-		Send_Or_Show(textResult,isSend)
-	}
-	text_split_zz(getZz:="",splitStr:=" ",isSend=1,surroundStr:=""){
-		textResult:=""
-		Loop, parse, getZz, `n, `r
-		{
-			str=%A_LoopField%
-			if(str!="") {
-				strs:=StrSplit(str,splitStr)
-				for i, s in strs
-				{
-					textResult.=surroundStr . s . surroundStr . splitStr
-				}
-				textResult:=RegExReplace(textResult,splitStr "$")
-				textResult.="`n"
-			}
-		}
-		textResult:=RegExReplace(textResult,"`n$")
 		Send_Or_Show(textResult,isSend)
 	}
 	;[文本替换]
@@ -93,7 +75,7 @@ class RunAnyObj {
 	;[Markdown格式化]
 	;参数说明：getZz：选中的文本内容
 	;formatStr：格式化选项，详情查看(https://wyagd001.github.io/zh-cn/docs/commands/Format.htm)
-	text_format_md_zz(getZz:="",formatStr:="",surround:=0,splitStr:=""){
+	text_format_md_zz(getZz:="",formatStr:="",surround:=0){
 		textResult:=""
 		removeFlag:=false
 		escapeList:=StrSplit("\.*?+[{|()^$")
@@ -105,7 +87,7 @@ class RunAnyObj {
 		{
 			getZzLoop:=A_LoopField
 			if(!Trim(A_LoopField)){
-				textResult.=getZzLoop . splitStr . "`n"
+				textResult.=getZzLoop . "`n"
 				continue
 			}
 			if(RegExMatch(getZzLoop,"S)^" regStr "$")){
@@ -114,10 +96,9 @@ class RunAnyObj {
 			}
 			if(removeFlag)
 				continue
-			textResult.=Format(formatStr,getZzLoop) . splitStr . "`n"
+			textResult.=Format(formatStr,getZzLoop) . "`n"
 		}
 		textResult:=RegExReplace(textResult,"`n$")
-		textResult:=RegExReplace(textResult,splitStr "$")
 		Send_Str_Zz(textResult)
 		if(surround && !InStr(getZz,"`n")){
 			getZzLen:=StrLen(getZz)

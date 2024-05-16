@@ -1,14 +1,17 @@
 <div align="center">
 <a href="https://github.com/hui-Zz/RunAny" target="_blank">
-	<img src="https://hui-zz.gitee.io/runany/assets/images/RunAny.svg" alt="RunAny" width="120" height="120">
+    <img src="https://hui-zz.gitee.io/runany/assets/images/RunAny.svg" alt="RunAny" width="120" height="120">
 </a>
+
 
 # 【RunAny】一劳永逸的快速启动工具
 
-[![GitHub release](https://img.shields.io/github/release/hui-Zz/RunAny.svg?label=最新版本&style=flat-square&logo=github&color=red)![GitHub stars](https://img.shields.io/github/stars/hui-Zz/RunAny.svg?style=flat-square&color=yellow)![GitHub forks](https://img.shields.io/github/forks/hui-Zz/RunAny?style=flat-square)](https://github.com/hui-Zz/RunAny)![history](https://img.shields.io/badge/2017--2022-yellowgreen.svg?style=flat-square)  
-[![Autohotkey](https://img.shields.io/badge/autohotkey-1.1.33.10-green.svg?style=flat-square&logo=autohotkey)](http://ahkscript.org)
+[![G    tHub release](https://img.shields.io/github/release/hui-Zz/RunAny.svg?label=最新版本&style=flat-square&logo=github&color=red)![GitHub stars](https://img.shields.io/github/stars/hui-Zz/RunAny.svg?style=flat-square&color=yellow)![GitHub forks](https://img.shields.io/github/forks/hui-Zz/RunAny?style=flat-square)](https://github.com/hui-Zz/RunAny)![history](https://img.shields.io/badge/2017--2022-yellowgreen.svg?style=flat-square)  
+[![A    tohotkey](https://img.shields.io/badge/autohotkey-1.1.33.10-green.svg?style=flat-square&logo=autohotkey)](http://ahkscript.org)
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fhui-Zz%2FRunAny&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%E5%BD%93%E6%97%A5%2F%E6%80%BB%E6%B5%8F%E8%A7%88&edge_flat=true)](https://hits.seeyoufarm.com)
+
 </div>
+
 
 ​    **RunAny区别一般的启动工具，适合家里、公司多台电脑的用户，不管软件装在C盘还是D盘Anywhere，根据名字直接找到并运行**
 
@@ -23,6 +26,10 @@
 - ☑ [外接脚本，个性函数，自由定制](#runPlugins)
 - ☑ [规则判断自动启动软件](https://hui-zz.gitee.io/runany/#/run-ctrl) **重磅新功能！**
 - ☑ [【打开/保存对话框快速定位目录功能】（类似于Listary的Ctrl+G）](https://hui-zz.gitee.io/runany/#/change-log?id=%e2%9c%85%e6%96%b0%e5%a2%9e%e3%80%90%e6%89%93%e5%bc%80%e4%bf%9d%e5%ad%98%e5%af%b9%e8%af%9d%e6%a1%86%e5%bf%ab%e9%80%9f%e5%ae%9a%e4%bd%8d%e7%9b%ae%e5%bd%95%e5%8a%9f%e8%83%bd%e3%80%91%ef%bc%88%e7%b1%bb%e4%bc%bc%e4%ba%8elistary%e7%9a%84ctrlg%ef%bc%89) **重磅新功能！**
+
+**好人**
+*good*
+**简直了**
 
 【Github下载地址：】https://github.com/hui-Zz/RunAny/archive/master.zip
 - 蓝奏云下载：https://www.lanzoux.com/b902490/
@@ -162,6 +169,7 @@ RunAny可以储存邮箱、手机号，想用时就快捷输出，更支持AHK�
 
 ```ini
 记事本(&N)_:88|Notepad.exe
+
 ```
 9. **热键映射：** 映射空闲的组合键转变为常用键功能，如：
 
@@ -171,6 +179,7 @@ RunAny可以储存邮箱、手机号，想用时就快捷输出，更支持AHK�
 ```ini
 左手回车	<+Space|{Enter}::
 左手删除	LShift & CapsLock|{Delete}::
+
 ```
    > [了解更多AHK热键写法文档](https://wyagd001.github.io/zh-cn/docs/Hotkeys.htm)
 10. **全局热键：** 在别名最末尾添加<kbd>Tab</kbd>制表符+热键（热键格式参考AHK写法:^代表<kbd>Ctrl</kbd> !代表<kbd>Alt</kbd> #代表<kbd>Win</kbd>+代表<kbd>Shift</kbd>），如按 `Alt+b`一键百度、 `Win+z`一键翻译、按 `Alt+z`启动或激活浏览器：
@@ -179,6 +188,7 @@ RunAny可以储存邮箱、手机号，想用时就快捷输出，更支持AHK�
 谷歌(&G)	!g|http://www.google.com/search?q=%s&gws_rd=ssl
 翻译(&F)	#z|http://translate.google.cn/#auto/zh-CN/
 浏览器(&Z)	!z|chrome.exe
+
 ```
 > 搜索网址的关键字，如果在中间而不是在末尾，用%s表示，默认不加就是加在末尾来搜索
 
@@ -217,31 +227,22 @@ RunAny追求就是：<u>**一劳永逸**</u>
 ## 【特别感谢以下朋友对RunAny的赞助！有你们RunAny会越来越好！】
 
 | 时间（2022）        | 昵称                   | 备注                       |
-| ------------------ | ---------------------- | ---------------------------------------- |
-| 2022/1/3 9:09:32   | S\*w                   | [第3次] 软件非常好用，感谢               |
-| 2022/1/19 15:56:39 | AHK-工兵               | [第8次]                                  |
-| 2022/2/7 10:33:22  | *叔                    |                                          |
-| 2022/2/9 16:02:47  | AHK-工兵【赞助最多次】 | [第9次] 祝Z大新快乐啊                    |
-| 2022/2/18 14:15:12 | **喜                   |                                          |
-| 2022/3/4 22:34:29  | Q*i                    |                                          |
-| 2022/3/15 14:30:54 | Mickey                 |                                          |
-| 2022/3/30 22:54:13 | *我                    |                                          |
-| 2022/4/1 8:40:18   | **彬                   | [第2次]                                  |
-| 2022/4/3 10:57:06  | 寒*z                   | 感谢兄弟，软件很好用                     |
-| 2022/4/4 22:27:19  | 山木                   | 感谢！非常好用！                         |
-| 2022/4/8 14:43:45  | **理                   |                                          |
-| 2022/4/27 17:10:56 | Y*9                    | 谢谢啦                                   |
-| 2022/5/1 22:41:07  | ★火★【插件开发者】     | 火，一点心意                             |
-| 2022/5/3 19:16:43  | ★火★【插件开发者】     | 火，支持RA                               |
-| 2022/5/25 17:22:21 | **奇                   |                                          |
-| 2022/7/4 14:36:12  | **菲                   |                                          |
-| 2022/7/8 23:13:10  | *痕                    | 一点心意以后继续支持                     |
-| 2022/8/13 1:27:37  | Y*9                    | 感谢作者开发的软件                       |
-| 2022/8/13 23:47:23 | **—                    | 很好用，谢谢！                           |
-| 2022/8/15 16:25:43 | *阳                    |                                          |
-| 2022/8/18 17:00:00 | **飞                   | 还没掌握它，但我感觉这是一个有情怀的软件 |
-| 2022/9/22 12:10:44 | QRui                   |                                          |
-| 2022/10/4 11:33:16 | *牛                    | 【赞助最多】                             |
+| ------------------- | ---------------------- | -------------------------- |
+| 2022-01-03 09:09:32 | S\*w                   | [第3次] 软件非常好用，感谢 |
+| 2022-01-19 15:56:39 | AHK-工兵               | [第8次]                    |
+| 2022-02-07 10:33:22 | *叔                    |                            |
+| 2022-02-09 16:02:47 | AHK-工兵【赞助最多次】 | [第9次] 祝Z大新快乐啊      |
+| 2022-02-18 14:15:12 | **喜                   |                            |
+| 2022-03-04 22:34:29 | Q*i                    |                            |
+| 2022-03-15 14:30:54 | Mickey                 |                            |
+| 2022-03-30 22:54:13 | *我                    |                            |
+| 2022-04-01 08:40:18 | \*\*彬                 | [第2次]                    |
+| 2022-04-03 10:57:06 | 寒*z                   | 感谢兄弟，软件很好用       |
+| 2022-04-04 22:27:19 | 山木                   | 感谢！非常好用！           |
+| 2022-04-08 14:43:45 | **理                   |                            |
+| 2022-04-27 17:10:56 | Y*9                    | 谢谢啦                     |
+| 2022-05-01 22:41:07 | ★火★【插件开发者】     | 火，一点心意               |
+| 2022-05-03 19:16:43 | ★火★【插件开发者】     | 火，支持RA                 |
 
 | 时间（2020）        | 昵称        | 备注                 | 时间（2021）        | 昵称     | 备注                                           |
 | ------------------- | ----------- | -------------------- | ------------------- | -------- | ---------------------------------------------- |

@@ -1,21 +1,21 @@
 ﻿;************************
-;* 【ObjReg系统操作脚本】 
-;*             by hui-Zz 
+;* 【ObjReg系统操作脚本】
+;*             by hui-Zz
 ;************************
 global RunAny_Plugins_Name:="ObjReg系统操作脚本"
 global RunAny_Plugins_Version:="1.1.3"
 global RunAny_Plugins_Icon:="imageres.dll,61"
-#NoTrayIcon             ;~不显示托盘图标
-#Persistent             ;~让脚本持久运行
-#WinActivateForce       ;~强制激活窗口
-#SingleInstance,Force   ;~运行替换旧实例
-ListLines,Off           ;~不显示最近执行的脚本行
-SendMode,Input          ;~使用更速度和可靠方式发送键鼠点击
-SetBatchLines,-1        ;~脚本全速执行(默认10ms)
-SetControlDelay,0       ;~控件修改命令自动延时(默认20)
-SetWinDelay,0           ;~执行窗口命令自动延时(默认100)
-SetTitleMatchMode,2     ;~窗口标题模糊匹配
-CoordMode,Menu,Window   ;~坐标相对活动窗口
+#NoTrayIcon           ;~不显示托盘图标
+#Persistent           ;~让脚本持久运行
+#WinActivateForce     ;~强制激活窗口
+#SingleInstance,Force ;~运行替换旧实例
+ListLines,Off         ;~不显示最近执行的脚本行
+SendMode,Input        ;~使用更速度和可靠方式发送键鼠点击
+SetBatchLines,-1      ;~脚本全速执行(默认10ms)
+SetControlDelay,0     ;~控件修改命令自动延时(默认20)
+SetWinDelay,0         ;~执行窗口命令自动延时(默认100)
+SetTitleMatchMode,2   ;~窗口标题模糊匹配
+CoordMode,Menu,Window ;~坐标相对活动窗口
 ;SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
 #Include %A_ScriptDir%\RunAny_ObjReg.ahk
 
@@ -67,7 +67,6 @@ class RunAnyObj {
 			ToolTip
 		}
 	}
-	
 	;[ping选中地址]
 	system_ping_zz(getZz:=""){
 		Run,% ComSpec " /C ping " getZz " -t"
@@ -181,7 +180,7 @@ class RunAnyObj {
 		}
 	}
 
-;══════════════════════════大括号以上是RunAny菜单调用的函数══════════════════════════
+	;══════════════════════════大括号以上是RunAny菜单调用的函数══════════════════════════
 
 }
 
@@ -202,10 +201,19 @@ cmdClipReturn(command,save=0){
 		if(save)
 			Clipboard:=Clip_Saved
 	}catch{}
-	return cmdInfo
+		return cmdInfo
 }
 
 ;独立使用方式
 ;~ F2::
-	;~ RunAnyObj.system_ip_zz(0)
+;~ RunAnyObj.system_ip_zz(0)
 ;~ return
+^F13::
+	Send, {Volume_Down} 
+	RunAnyObj.system_sound_volume(0,3)
+return
+^F14::
+	Send,{Volume_Up}
+	RunAnyObj.system_sound_volume(1,3)
+return
+
