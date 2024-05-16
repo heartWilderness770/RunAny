@@ -9,13 +9,14 @@
 	;1.【Radio_names】添加对应功能名称
 	;2.【RA_suffix】、【RA_menu】与步骤1中【后缀菜单】、【菜单项】位置对应，请务必一一对应
 	;3.【单选框对应功能】中按序号添加与【Radio_names】对应的功能
-
 ;------------------------------------------【自定义变量】-----------------------------------------
 Label_Custom_Fun:
-	global Radio_names := ["后缀菜单","菜单项","百度一下"]
-	global RA_suffix := 1		;后缀菜单对应位置
-	global RA_menu := 2			;菜单项对应位置
-	global Radio_Default := 2	;默认搜索对应位置，默认为菜单项
+	global Radio_names := ["RA后缀","RA菜单","Ev搜索","浏览器书签"]
+	global RA_suffix := 1			;后缀菜单对应位置
+	global RA_menu := 2				;菜单项对应位置
+	global RA_Everything := 3 		;Everything搜索功能
+	global RA_ChromeBookmarks := 4 	;浏览器标签搜索
+	global Radio_Default := 2		;默认搜索对应位置，默认为菜单项
 Return
 
 ;----------------------------------------【单选框对应功能】----------------------------------------
@@ -27,9 +28,12 @@ fun_2:	;菜单项
 	Gosub, menu_fun
 Return
 
-fun_3:	;百度一下
-	URIContent:=URIEncode(Content)	;网页搜索时内容进行URI转义
-	Run https://www.baidu.com/s?wd=%URIContent%
+fun_3:	;EV搜索
+	Gosub, Radio_Everything
+Return
+
+fun_4:	;浏览器标签搜索
+	Gosub, Radio_ChromeBookmarks
 Return
 
 ;----------------------------------------【辅助函数位置】----------------------------------------

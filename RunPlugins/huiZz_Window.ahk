@@ -1,23 +1,22 @@
 ﻿;************************
-;* 【ObjReg窗口操作脚本】
-;*             by hui-Zz
+;* 【ObjReg窗口操作脚本】 
+;*             by hui-Zz 
 ;************************
 global RunAny_Plugins_Name:="ObjReg窗口操作脚本"
 global RunAny_Plugins_Version:="1.1.3"
 global RunAny_Plugins_Icon:="SHELL32.dll,241"
-#NoEnv ;~不检查空变量为环境变量
-#NoTrayIcon ;~不显示托盘图标
-#Persistent ;~让脚本持久运行
-#WinActivateForce ;~强制激活窗口
-#SingleInstance,Force ;~运行替换旧实例
-ListLines,Off ;~不显示最近执行的脚本行
-SendMode,Input ;~使用更速度和可靠方式发送键鼠点击
-SetBatchLines,-1 ;~脚本全速执行(默认10ms)
-SetControlDelay,0 ;~控件修改命令自动延时(默认20)
-SetWinDelay,0 ;~执行窗口命令自动延时(默认100)
-SetTitleMatchMode,2 ;~窗口标题模糊匹配
-CoordMode,Menu,Window ;~坐标相对活动窗口
-#MaxHotkeysPerInterval, 200
+#NoEnv                  ;~不检查空变量为环境变量
+#NoTrayIcon             ;~不显示托盘图标
+#Persistent             ;~让脚本持久运行
+#WinActivateForce       ;~强制激活窗口
+#SingleInstance,Force   ;~运行替换旧实例
+ListLines,Off           ;~不显示最近执行的脚本行
+SendMode,Input          ;~使用更速度和可靠方式发送键鼠点击
+SetBatchLines,-1        ;~脚本全速执行(默认10ms)
+SetControlDelay,0       ;~控件修改命令自动延时(默认20)
+SetWinDelay,0           ;~执行窗口命令自动延时(默认100)
+SetTitleMatchMode,2     ;~窗口标题模糊匹配
+CoordMode,Menu,Window   ;~坐标相对活动窗口
 ;WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 #Include %A_ScriptDir%\RunAny_ObjReg.ahk
 
@@ -85,7 +84,7 @@ class RunAnyObj {
 	win_movie_zz(mode=1,x=0,y=0,title=0,w=0,h=0){
 		WinRestore, A
 		WinGetActiveStats,zTitle,var_width,var_height,var_x,var_y
-		WinSet,AlwaysOnTop,on,A ;开启置顶
+		WinSet,AlwaysOnTop,on,A  ;开启置顶
 		if(title)
 			WinSet,Style,-0xC00000,A
 		else
@@ -107,12 +106,11 @@ class RunAnyObj {
 		}
 		WinMove,%zTitle%,,% var_x + x,% var_y + y,%var_width%,%var_height%
 	}
-
 	;[窗口透明度]
 	win_transparency_zz(flag = 1,amount = 10)
 	{
 		WinGetTitle, ActiveTitle, A
-		static t=255
+		static t = 255
 		If(flag=0)
 			tmp := t + amount
 		else if(flag=1)
@@ -122,35 +120,17 @@ class RunAnyObj {
 		else if(tmp < 0)
 			tmp = 0
 		WinSet,Transparent,%tmp%,%ActiveTitle%
-		; ToolTip,当前透明度:%tmp%
-		; Sleep,1000
-		; ToolTip
+		ToolTip,当前透明度:%tmp%
+		Sleep,1000
+		ToolTip
 		t := tmp
-	}
-	win_transparency_transient_zz(transientTime=0, amount = 10)
-	{
-		;在transientTime时间内,如果输入了f11就调用win_transparency_zz函数增加透明度, 并重置计时器, 循环等待, 超时则退出
-		WinGetTitle, ActiveTitle, A
-		static t = 255
-		SetTimer, TransientTimer, %transientTime%
-
-		TransientTimer:
-			t := t - amount
-			WinSet,Transparent,%t%,%ActiveTitle%
-			if(t <= 0)
-			{
-				SetTimer, TransientTimer, Off
-				t := 255
-			}
-		Return
-
 	}
 	;[窗口置顶时设置透明，第二次还原]
 	win_transparent_top_zz(){
 		Suspend,Permit
 		global nhwnd
 		WinGet, temp, ExStyle, A
-		if(temp & 0x8){ ; 0x8 表示 WS_EX_TOPMOST.
+		if(temp & 0x8){  ; 0x8 表示 WS_EX_TOPMOST.
 			;这个分支是当前激活窗口是置顶窗口
 			SetTimer, transparEnter, Off ;关闭时钟
 			WinSet,AlwaysOnTop,off, A ;关闭置顶
@@ -160,13 +140,13 @@ class RunAnyObj {
 			nhwnd:=""
 		}else{
 			;这个分支是当前激活窗口不是置顶窗口,这时什么也不做
-			WinSet,AlwaysOnTop,on,A ;开启置顶
+			WinSet,AlwaysOnTop,on,A  ;开启置顶
 			SetTimer, transparEnter, 250
 			MouseGetPos, , , nhwnd
 		}
 		transparEnter: ;当前置顶窗口执行透明子程序
 			WinGet, temp, ExStyle, A ;获取当前激活窗口是否置顶状态
-			if(temp & 0x8){ ; 0x8 表示 WS_EX_TOPMOST.
+			if(temp & 0x8){  ; 0x8 表示 WS_EX_TOPMOST.
 				;这个分支是当前激活窗口是置顶窗口,如果当前置顶窗口获取焦点了则取消透明
 				WinGet, TransparEnter, Transparent, A
 				if(TransparEnter <> 255){
@@ -230,7 +210,7 @@ class RunAnyObj {
 		}
 	}
 
-	;══════════════════════════大括号以上是RunAny菜单调用的函数══════════════════════════
+;══════════════════════════大括号以上是RunAny菜单调用的函数══════════════════════════
 
 }
 
@@ -238,14 +218,5 @@ class RunAnyObj {
 
 ;独立使用方式
 ;F1::
-;RunAnyObj.win_center_zz()
+	;RunAnyObj.win_center_zz()
 ;return
-#F1::
-	RunAnyObj.win_transparency_transient_zz(1000, 1)
-return
-#F13::
-	RunAnyObj.win_transparency_zz(0, 5)
-Return
-#F14::
-	RunAnyObj.win_transparency_zz(1, 5)
-Return

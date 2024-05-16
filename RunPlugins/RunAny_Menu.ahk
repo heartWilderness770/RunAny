@@ -16,10 +16,10 @@ GroupAdd,menuApp,ahk_exe RunAny.exe
 GroupAdd,menuApp,ahk_exe explorer.exe
 GroupAdd,menuApp,ahk_exe DesktopMgr64.exe
 
-GroupAdd,menuApp,ahk_exe AutoHotkey.exe  ;如果使用AHK运行RunAny 打开此注释
+;GroupAdd,menuApp,ahk_exe AutoHotkey.exe  ;如果使用AHK运行RunAny 打开此注释
 
 ;（0-255）[0全透明-255完全不透明程度]
-透明度:=Var_Read("RunAnyMenuTransparent",200)
+透明度:=Var_Read("RunAnyMenuTransparent",225)
 
 ;[想要关闭菜单透明化，可以注释掉下面这行定时器]
 SetTimer,Transparent_Show,10
